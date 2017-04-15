@@ -1,5 +1,4 @@
 # coding:utf-8
-import os
 import time
 import re
 from slackclient import SlackClient
@@ -7,11 +6,10 @@ from slackclient import SlackClient
 from evnote import EvernoteDiary
 
 class SlackBotMain:
-    def __init__(self):
+    def __init__(self, slack_token, evernote_token):
         # Please execute $ export SLACK_TOKEN="Your slack token" in terminal.
-        token = os.environ['SLACK_TOKEN']
-        self.sc = SlackClient(token)
-        self.evdiary = EvernoteDiary()
+        self.sc = SlackClient(slack_token)
+        self.evdiary = EvernoteDiary(evernote_token)
 
         if self.sc.rtm_connect():
             print("Connected")

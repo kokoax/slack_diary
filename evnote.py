@@ -1,5 +1,4 @@
 # coding: utf-8
-
 from datetime import datetime as dt
 from bs4 import BeautifulSoup
 
@@ -8,11 +7,9 @@ import evernote.edam.type.ttypes as Types
 import evernote.edam.notestore.ttypes as NoteStore
 
 class EvernoteDiary:
-    def __init__(self):
-        # Please execute $ export EVERNOTE_TOKEN="Your evernote token" in terminal.
-        TOKEN = os.environ['EVERNOTE_TOKEN']
+    def __init__(self, evernote_token):
         client = EvernoteClient(
-            token = TOKEN,
+            token = evernote_token,
             sandbox=False
         )
 
